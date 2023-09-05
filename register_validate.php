@@ -1,31 +1,29 @@
 <?php
-Class Registro
-{
-    public function validar($p_nombre, $s_nombre,$p_apellido, $s_apellido,$email, $password)
-    {
-        $cont= "0";
-        include ("conexion.php");
-        mysqli_query($db,"INSERT INTO usuarios (p_nombre, s_nombre,p_apellido, s_apellido,email, contraseña) VALUES (NULL,'$p_nombre', '$s_nombre','$p_apellido', '$s_apellido','$email','$password')");
-        if (!$result = $db->query($sql)){
-            die('Hay un error ocurriendo en la consulta o datos no encontrados!! ['. $db->error .']');
-        }
-        while ($row = $result->fetch_assoc())
-        {
-            $cont=$cont+1;
-        }
-        if ($cont=="0")
-        { 
-            header ("location: index.php");
-            echo '<span>USTED SE REGISTRO</span>';
-          
-        }
-        if ($cont!="0")
-        {
-            $_SESSION ["email"]=$documento;
-            header ("location: index_users.php");
-        }
+include('conexion.php');
+if (isset($_POST['register'])) {
+    $p_nombre = $_POST['p_nombre'];
+    $s_nombre = $_POST['s_nombre'];
+    $p_apellido = $_POST['p_apellido'];
+    $s_apellido = $_POST['s_apellido'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cont = "0";
+
+    $sql = "SELECT * FROM usuarios WHERE email='$email'";
+    if (!$result = $db->query($sql)) {
+        die('hay un error en la consulta');
     }
-   }
-$final= new Registro();
-$final->validar($_POST["p_nombre"],$_POST["s_nombre"],$_POST["p_apellido"],$_POST["s_apellido"],$_POST["email"],$_POST["password"])
-?>
+    while ($row = $result->fetch_assoc()) {
+        $id_usuario = stripslashes($row["id_usuario"]);
+        $eemail = stripslashes($row["email"]);
+        $cont = $cont + 1;
+    }
+    if ($cont == "0") {
+        mysqli_query($db, " INSERT INTO `usuarios` (`id_usuario`, `p_nombre`, `s_nombre`, `p_apellido`, `s_apellido`, `email`, `contraseña`, `id_rol`) VALUES (null, '$p_nombre', '$s_nombre', '$p_apellido', '$s_apellido', '$email', '$password','2')");
+        echo "¡Se insertaron los datos correctamente!";
+    }
+    if ($cont != "0") {
+        echo "¡No se puede insertar la informacion!" . "<br>";
+        echo "Error: " . "<br>" . mysqli_error($db);
+    }
+}

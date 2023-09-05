@@ -82,7 +82,7 @@
                                     <label class="form-label">Segundo apellido</label>
                                     <input type="text" class="form-control" name="s_apellido" required>
                                     <label class="form-label">Correo electronico</label>
-                                    <input type="email" class="form-control" name="email" required>
+                                    <input type="text" class="form-control" name="email" required>
                                     <label class="form-label">Contraseña</label>
                                     <input type="password" class="form-control" name="password" required>
                                 </div>
@@ -97,7 +97,7 @@
                                         autorizo al uso de mis datos de acuerdo a la Declaración de Privacidad.</a>
                                 </div>
                                 <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button type="submit" class="btn btn-primary ">Registrarse</button>
+                                    <button type="submit" class="btn btn-primary" name="register" value="register">Registrarse</button>
                                     <!-- IMPORTANTE DATA BS DIRECCIONA AL OTRO FORM  -->
                                     <a class="text-center" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-login" aria-controls="offcanvasRight">¿Ya
                                         tienes cuenta? click aqui</a>
@@ -107,7 +107,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Offcanvas login -->
@@ -141,5 +140,4 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>

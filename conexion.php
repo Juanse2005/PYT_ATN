@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: text/html;charset-utf-8");
-$db = new mysqli('localhost', 'root', '','db-atn');
+$db = new mysqli('localhost', 'root', '','db_atn');
 $acentos = $db->query("SET NAMES 'utf8'");
 if($db->connect_error > 0)
 {

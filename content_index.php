@@ -1,5 +1,5 @@
     <!--Carrusel e imagenes-->
-    <div class="container-flex mt-2 bg-gray">
+    <div class="container-flex mt-3 bg-gray">
         <br><br>
         <div class="row g-0">
             <div class="col">
