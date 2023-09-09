@@ -9,6 +9,7 @@
     <title>Inicio | ATN</title>
 </head>
 <body>
+    
     <!--navbar-->
     <?php
     include('navbar_index.php')

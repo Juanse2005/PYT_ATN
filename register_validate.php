@@ -7,6 +7,7 @@ if (isset($_POST['register'])) {
     $s_apellido = $_POST['s_apellido'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $encrypt = password_hash($password, PASSWORD_DEFAULT);
     $cont = "0";
 
     $sql = "SELECT * FROM usuarios WHERE email='$email'";
@@ -14,12 +15,12 @@ if (isset($_POST['register'])) {
         die('hay un error en la consulta');
     }
     while ($row = $result->fetch_assoc()) {
-        $id_usuario = stripslashes($row["id_usuario"]);
+        //$id_usuario = stripslashes($row["id_usuario"]);
         $eemail = stripslashes($row["email"]);
         $cont = $cont + 1;
     }
     if ($cont == "0") {
-        mysqli_query($db, " INSERT INTO `usuarios` (`id_usuario`, `p_nombre`, `s_nombre`, `p_apellido`, `s_apellido`, `email`, `contraseña`, `id_rol`) VALUES (null, '$p_nombre', '$s_nombre', '$p_apellido', '$s_apellido', '$email', '$password','2')");
+        mysqli_query($db, " INSERT INTO `usuarios` (`id_usuario`, `p_nombre`, `s_nombre`, `p_apellido`, `s_apellido`, `email`, `contraseña`, `id_rol`) VALUES (null, '$p_nombre', '$s_nombre', '$p_apellido', '$s_apellido', '$email', '$encrypt','2')");
         echo "¡Se insertaron los datos correctamente!";
     }
     if ($cont != "0") {

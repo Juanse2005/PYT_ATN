@@ -1,25 +1,30 @@
 <?php
+session_start();
 class USUARIO
 {
     public function validar($email, $password)
     {
-        $cont = "0";
         include("conexion.php");
-        $sql = "SELECT * FROM usuarios WHERE email='$email' and contraseña='$password'";
+        // Buscar al usuario por su correo electrónico
+        $sql = "SELECT * FROM usuarios WHERE email='$email'";
+
         if (!$result = $db->query($sql)) {
-            die('Hay un error ocurriendo en la consulta o datos no encontrados!! [' . $db->error . ']');
+            die('Hay un error ocurriendo en la consulta o datos no encontrados!!');
         }
-        while ($row = $result->fetch_assoc()) {
-            $cont = $cont + 1;
-        }
-        if ($cont == "0") {
-            header("location: index.php");
+
+        if ($row = $result->fetch_assoc()) {
+            // Verificar la contraseña utilizando password_verify
+            if (password_verify($password, $row['contraseña'])) {
+                $_SESSION["email"]=$email;
+                header("location: vista_permisos.php");
+            } else {
+                echo '<span>El usuario y/o clave son incorrectas, vuelva a intentarlo.</span>';
+            }
+        } else {
             echo '<span>El usuario y/o clave son incorrectas, vuelva a intentarlo.</span>';
-        }
-        if ($cont != "0") {
-            header("location: index_users.php");
         }
     }
 }
+
 $final = new USUARIO();
-$final->validar($_POST["email"], $_POST["password"],);
+$final->validar($_POST["email"], $_POST["password"]);
