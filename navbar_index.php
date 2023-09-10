@@ -57,7 +57,21 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            ...
+            <?php
+            include("conexion.php");
+            $sql = "SELECT * FROM categorias";
+            $result = mysqli_query($db, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id_categoria = $row['id_categoria'];
+                    $nombre_categoria = $row['nombre_cat'];
+                    echo '<p><a href="products.php?id=' . $id_categoria . '" class="h5 text-decoration-none">' . $nombre_categoria . '</a></p>';
+                }
+            } else {
+                echo "No se encontraron resultados.";
+            }
+            ?>
+
         </div>
     </div>
 
@@ -71,38 +85,38 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
-                            <form name="register" action="register_validate.php" method="post">
-                                <div class="mb-3">
-                                    <label class="form-label">Primer nombre</label>
-                                    <input type="text" class="form-control" name="p_nombre" required>
-                                    <label class="form-label">Segundo nombre</label>
-                                    <input type="text" class="form-control" name="s_nombre">
-                                    <label class="form-label">Primer apellido</label>
-                                    <input type="text" class="form-control" name="p_apellido" required>
-                                    <label class="form-label">Segundo apellido</label>
-                                    <input type="text" class="form-control" name="s_apellido" required>
-                                    <label class="form-label">Correo electronico</label>
-                                    <input type="text" class="form-control" name="email" required>
-                                    <label class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" name="password" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Confirmar Contraseña</label>
-                                    <input type="password" class="form-control" required>
+                        <form name="register" action="register_validate.php" method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Primer nombre</label>
+                                <input type="text" class="form-control" name="p_nombre" required>
+                                <label class="form-label">Segundo nombre</label>
+                                <input type="text" class="form-control" name="s_nombre">
+                                <label class="form-label">Primer apellido</label>
+                                <input type="text" class="form-control" name="p_apellido" required>
+                                <label class="form-label">Segundo apellido</label>
+                                <input type="text" class="form-control" name="s_apellido" required>
+                                <label class="form-label">Correo electronico</label>
+                                <input type="text" class="form-control" name="email" required>
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" required>
 
-                                </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                                    <a href="terms_&_conditions" class="form-check-label" for="exampleCheck1" required>Acepto los Términos y condiciones, y
-                                        autorizo al uso de mis datos de acuerdo a la Declaración de Privacidad.</a>
-                                </div>
-                                <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button type="submit" class="btn btn-primary" name="register" value="register">Registrarse</button>
-                                    <!-- IMPORTANTE DATA BS DIRECCIONA AL OTRO FORM  -->
-                                    <a class="text-center" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-login" aria-controls="offcanvasRight">¿Ya
-                                        tienes cuenta? click aqui</a>
-                                </div>
-                            </form>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                                <a href="terms_&_conditions" class="form-check-label" for="exampleCheck1" required>Acepto los Términos y condiciones, y
+                                    autorizo al uso de mis datos de acuerdo a la Declaración de Privacidad.</a>
+                            </div>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button type="submit" class="btn btn-primary" name="register" value="register">Registrarse</button>
+                                <!-- IMPORTANTE DATA BS DIRECCIONA AL OTRO FORM  -->
+                                <a class="text-center" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-login" aria-controls="offcanvasRight">¿Ya
+                                    tienes cuenta? click aqui</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
