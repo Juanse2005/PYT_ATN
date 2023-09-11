@@ -1,6 +1,6 @@
     <!--Imagen del navbar-->
     <nav class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <img src="img-logo-atn-02.png" width="90" height="70" class="d-inline-block" alt="">
             ATN
         </a>
@@ -10,8 +10,8 @@
         </button>
         <!--Form del buscador-->
         <div class="collapse navbar-collapse">
-            <form class="d-flex">
-                <input class="form-control-nav" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="products.php" method="post">
+                <input class="form-control-nav" type="search" placeholder="Buscar..." aria-label="Search">
             </form>
         </div>
         <!--Carrito de compras-->
@@ -99,28 +99,26 @@
                                 <input type="text" class="form-control" name="email" required>
                                 <label class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" name="password" required>
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Confirmar Contraseña</label>
-                                <input type="password" class="form-control" required>
-
+                                <input type="password" class="form-control" name="c_password" required>
                             </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                                <a href="terms_&_conditions" class="form-check-label" for="exampleCheck1" required>Acepto los Términos y condiciones, y
-                                    autorizo al uso de mis datos de acuerdo a la Declaración de Privacidad.</a>
-                            </div>
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button type="submit" class="btn btn-primary" name="register" value="register">Registrarse</button>
-                                <!-- IMPORTANTE DATA BS DIRECCIONA AL OTRO FORM  -->
-                                <a class="text-center" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-login" aria-controls="offcanvasRight">¿Ya
-                                    tienes cuenta? click aqui</a>
-                            </div>
-                        </form>
                     </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                        <a href="terms_&_conditions" class="form-check-label" for="exampleCheck1" required>Acepto los Términos y condiciones, y
+                            autorizo al uso de mis datos de acuerdo a la Declaración de Privacidad.</a>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary" name="register" value="register">Registrarse</button>
+                        <!-- IMPORTANTE DATA BS DIRECCIONA AL OTRO FORM  -->
+                        <a class="text-center" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-login" aria-controls="offcanvasRight">¿Ya
+                            tienes cuenta? click aqui</a>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Offcanvas login -->

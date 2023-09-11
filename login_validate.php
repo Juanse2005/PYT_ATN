@@ -16,7 +16,7 @@ class USUARIO
             // Verificar la contraseña utilizando password_verify
             if (password_verify($password, $row['contraseña'])) {
                 $_SESSION["email"]=$email;
-                header("location: vista_permisos.php");
+                header("location: index_users.php");
             } else {
                 echo '<span>El usuario y/o clave son incorrectas, vuelva a intentarlo.</span>';
             }

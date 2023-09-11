@@ -7,6 +7,7 @@ if (isset($_POST['register'])) {
     $s_apellido = $_POST['s_apellido'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $c_password = $_POST['c_password'];
     $encrypt = password_hash($password, PASSWORD_DEFAULT);
     $cont = "0";
 
@@ -19,9 +20,14 @@ if (isset($_POST['register'])) {
         $eemail = stripslashes($row["email"]);
         $cont = $cont + 1;
     }
-    if ($cont == "0") {
-        mysqli_query($db, " INSERT INTO `usuarios` (`id_usuario`, `p_nombre`, `s_nombre`, `p_apellido`, `s_apellido`, `email`, `contraseña`, `id_rol`) VALUES (null, '$p_nombre', '$s_nombre', '$p_apellido', '$s_apellido', '$email', '$encrypt','2')");
-        echo "¡Se insertaron los datos correctamente!";
+    if ($c_password == $password) {
+        if ($cont == "0") {
+            mysqli_query($db, " INSERT INTO `usuarios` (`id_usuario`, `p_nombre`, `s_nombre`, `p_apellido`, `s_apellido`, `email`, `contraseña`, `id_rol`) VALUES (null, '$p_nombre', '$s_nombre', '$p_apellido', '$s_apellido', '$email', '$encrypt','2')");
+            echo "¡Se insertaron los datos correctamente!";
+        }
+    }
+    else {
+        echo "Confirmacion de contrasena incorrecta";
     }
     if ($cont != "0") {
         echo "¡No se puede insertar la informacion!" . "<br>";

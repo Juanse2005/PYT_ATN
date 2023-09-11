@@ -18,7 +18,7 @@
     ?>
     <!--navbar-->
     <?php
-    include('navbar_index_users.php')
+    include('navbar_users.php')
     ?>
     <!-- Carrousel -->
     <?php
