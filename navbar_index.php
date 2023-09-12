@@ -105,7 +105,7 @@
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                        <a href="terms_&_conditions" class="form-check-label" for="exampleCheck1" required>Acepto los Términos y condiciones, y
+                        <a href="terms_&_conditions.php" class="form-check-label" for="exampleCheck1" required>Acepto los Términos y condiciones, y
                             autorizo al uso de mis datos de acuerdo a la Declaración de Privacidad.</a>
                     </div>
                     <div class="d-grid gap-2 col-6 mx-auto">
@@ -135,7 +135,7 @@
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
                                 <input type="email" class="form-control" name="email" required>
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                <div id="emailHelp" class="form-text">Recuerda nunca compartir tu correo con otras personas.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>

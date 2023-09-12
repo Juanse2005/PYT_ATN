@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active">
+                    <a class="nav-link active" href="dashboard.php">
                         Bienvendio usuario
                     </a>
                 </li>
