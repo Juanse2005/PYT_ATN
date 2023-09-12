@@ -46,7 +46,7 @@
         <div class="row g-1">
             <div class="col">
                 <div class="card" style="width: 100%; height: 100%">
-                    <a href="index.php" class="text-decoration-none h6">
+                    <a href="product_1.php" class="text-decoration-none h6">
                         <div id="uno" class="carousel carousel-dark slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -75,7 +75,7 @@
         </div>
         <div class="col">
             <div class="card" style="width: 100%; height: 100%">
-                <a href="index.php" class="text-decoration-none h6">
+                <a href="product_2.php" class="text-decoration-none h6">
                     <div id="dos" class="carousel carousel-dark slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -103,7 +103,7 @@
     </div>
     <div class="col">
         <div class="card" style="width: 100%; height: 100%">
-            <a href="index.php" class="text-decoration-none h6">
+            <a href="product_1.php" class="text-decoration-none h6">
                 <div id="tres" class="carousel carousel-dark slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -130,33 +130,32 @@
     </div>
     </div>
     <div class="col">
-    <div class="card" style="width: 100%; height: 100%">
-                <a href="index.php" class="text-decoration-none h6">
-                    <div id="cuatro" class="carousel carousel-dark slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="prenda4.png" style="width: 100%; height: 400px;" alt="...">
-                            </div>
+        <div class="card" style="width: 100%; height: 100%">
+            <a href="product_2.php" class="text-decoration-none h6">
+                <div id="cuatro" class="carousel carousel-dark slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#cuatro" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#cuatro" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        <div class="carousel-item">
+                            <img src="prenda4.png" style="width: 100%; height: 400px;" alt="...">
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Camiseta con bordado comic</h5>
-                        <p class="card-text">$7
-                            0.000 COP</p>
-                </a>
-            </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#cuatro" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#cuatro" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta con bordado comic</h5>
+                    <p class="card-text">$70.000 COP</p>
+            </a>
         </div>
+    </div>
     </div>
     </div>
     </div>
