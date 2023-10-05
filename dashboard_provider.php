@@ -184,7 +184,6 @@
                     </div>
                     <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Agregar</button>
                 </form>
-
             </div>
         </div>
     </main>

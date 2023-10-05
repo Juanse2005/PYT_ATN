@@ -137,12 +137,11 @@
             </div>
         </div>
         <!--Contenido-->
-        
+        <table class="table table-bordered">
             <?php
             include("conexion.php");
-            $sql = "SELECT * FROM producto";
+            $sql = "SELECT * FROM productos";
             foreach ($db->query($sql) as $row) {
-                echo '<table class="table table-bordered">';
                 echo '<tr class="table-light">';
                 echo '<th> ID </th>';
                 echo '<th> Codigo </th>';
@@ -155,6 +154,7 @@
                 echo '<th> Imagen </th>';
                 echo '<th> Proveedor </th>';
                 echo '<th> Categoria </th>';
+                echo '<th> Eliminar </th>';
                 echo '</tr>';
                 echo '<tr>';
                 echo '<td>' . $row['id_producto'] . '</td>';
@@ -168,13 +168,35 @@
                 echo '<td>' . $row['imagen_prod'] . '</td>';
                 echo '<td>' . $row['id_proveedor'] . '</td>';
                 echo '<td>' . $row['id_categoria'] . '</td>';
+                echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_products.php?id=' . $row["id_proveedor"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
-                echo '</table>';
-                }
+            }
             ?>
+        </table>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form name="agregar" action="vcrud_add_providers.php" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Codigo del producto</label>
+                        <input type="text" class="form-control" name="nombre_prove" required>
+                        <label class="form-label">Descripcion</label>
+                        <input type="text" class="form-control" name="direccion_prove" required>
+                        <label class="form-label">Telefono</label>
+                        <input type="text" class="form-control" name="telefono_prove">
+                        <label class="form-label">Correo electronico</label>
+                        <input type="text" class="form-control" name="email_prove">
+                    </div>
+                    <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Agregar</button>
+                </form>
+
+            </div>
         </div>
     </main>
-    </div>
     <!--Iconos-->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="calendar3" viewBox="0 0 16 16">

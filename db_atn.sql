@@ -43,10 +43,10 @@ INSERT INTO `categorias` (`id_categoria`, `nombre_cat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `productos` (
   `id_producto` int(20) NOT NULL,
   `codigo_prod` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `nombre_prod` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `codigo_prod`, `nombre_prod`, `descripcion_prod`, `stock_prod`, `precio_prod`, `descuento_prod`, `estado_prod`, `imagen_prod`, `id_proveedor`, `id_categoria`) VALUES
+INSERT INTO `productos` (`id_producto`, `codigo_prod`, `nombre_prod`, `descripcion_prod`, `stock_prod`, `precio_prod`, `descuento_prod`, `estado_prod`, `imagen_prod`, `id_proveedor`, `id_categoria`) VALUES
 (1, '1111', 'Camisa de mesclilla con botones', 'Camisa de mesclilla con botones manga larga color azul claro, excelente calidad nacional.', 5, '150000', 0, '1', 'camisa.png', 1, 1),
 (2, '1112', 'Camiseta con bordado comic', 'Camiseta con bordado comic oversize, manga corta excelente calidad, importada', 4, '70000', 0, '1', 'camisa.png', 2, 1);
 
@@ -147,9 +147,9 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `productos`
 --
-ALTER TABLE `producto`
+ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_proveedor` (`id_proveedor`),
   ADD KEY `id_categoria` (`id_categoria`);
@@ -191,10 +191,13 @@ ALTER TABLE `proveedores`
 
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+ALTER TABLE `productos`
+MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Filtros para la tabla `producto`
 --
-ALTER TABLE `producto`
+ALTER TABLE `productos`
   ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
 
