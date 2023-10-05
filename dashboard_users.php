@@ -149,6 +149,7 @@
                 echo '<th> Primer Apellido </th>';
                 echo '<th> Segundo Apellido </th>';
                 echo '<th> ROL </th>';
+                echo '<th> Eliminar </th>';
                 echo '</tr>';
                 echo '<tr>';
                 echo '<td>' . $row['id_usuario'] . '</td>';
@@ -157,6 +158,7 @@
                 echo '<td>' . $row['p_apellido'] . '</td>';
                 echo '<td>' . $row['s_apellido'] . '</td>';
                 echo '<td>' . $row['id_rol'] . '</td>';
+                echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_users.php?id=' . $row["id_usuario"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
                 echo '</table>';
             }
