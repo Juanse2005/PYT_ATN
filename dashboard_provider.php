@@ -137,33 +137,54 @@
             </div>
         </div>
         <!--Contenido-->
-        <Table>
-            <?php
-            include("conexion.php");
-            $sql = "SELECT * FROM proveedores";
-            foreach ($db->query($sql) as $row) {
-                echo '<table  class="table table-bordered">';
-                echo '<tr class="table-light">';
-                echo '<th> ID </th>';
-                echo '<th> Nombre del proveedor </th>';
-                echo '<th> Direccion </th>';
-                echo '<th> Telefono Apellido </th>';
-                echo '<th> Correo electronico Apellido </th>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<td>' . $row['id_proveedor'] . '</td>';
-                echo '<td>' . $row['nombre_prove'] . '</td>';
-                echo '<td>' . $row['direccion_prove'] . '</td>';
-                echo '<td>' . $row['telefono_prove'] . '</td>';
-                echo '<td>' . $row['email_prove'] . '</td>';
-                echo '</tr>';
-                echo '</table>';
-            }
-            ?>
-        </Table>
+        <?php
+        include("conexion.php");
+        $sql = "SELECT * FROM proveedores";
+        foreach ($db->query($sql) as $row) {
+            echo '<table  class="table table-bordered">';
+            echo '<tr class="table-light">';
+            echo '<th> ID </th>';
+            echo '<th> Nombre del proveedor </th>';
+            echo '<th> Direccion </th>';
+            echo '<th> Telefono</th>';
+            echo '<th> Correo electronico</th>';
+            echo '</tr>';
+            echo '<tr>';
+            echo '<td>' . $row['id_proveedor'] . '</td>';
+            echo '<td>' . $row['nombre_prove'] . '</td>';
+            echo '<td>' . $row['direccion_prove'] . '</td>';
+            echo '<td>' . $row['telefono_prove'] . '</td>';
+            echo '<td>' . $row['email_prove'] . '</td>';
+            echo '</tr>';
+            echo '</table>';
+        }
+        ?>
+
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar proveedores</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form name="agregar" action="vcrud_add_providers.php" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del proveedor</label>
+                        <input type="text" class="form-control" name="nombre_prove" required>
+                        <label class="form-label">Direccion</label>
+                        <input type="text" class="form-control" name="direccion_prove" required>
+                        <label class="form-label">Telefono</label>
+                        <input type="text" class="form-control" name="telefono_prove">
+                        <label class="form-label">Correo electronico</label>
+                        <input type="text" class="form-control" name="email_prove">
+                    </div>
+                    <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Agregar</button>
+                </form>
+
+            </div>
         </div>
+        <Table>
     </main>
-    </div>
     <!--Iconos-->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="calendar3" viewBox="0 0 16 16">
