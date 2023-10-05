@@ -137,28 +137,32 @@
             </div>
         </div>
         <!--Contenido-->
-        <?php
-        include("conexion.php");
-        $sql = "SELECT * FROM proveedores";
-        foreach ($db->query($sql) as $row) {
-            echo '<table  class="table table-bordered">';
-            echo '<tr class="table-light">';
-            echo '<th> ID </th>';
-            echo '<th> Nombre del proveedor </th>';
-            echo '<th> Direccion </th>';
-            echo '<th> Telefono</th>';
-            echo '<th> Correo electronico</th>';
-            echo '</tr>';
-            echo '<tr>';
-            echo '<td>' . $row['id_proveedor'] . '</td>';
-            echo '<td>' . $row['nombre_prove'] . '</td>';
-            echo '<td>' . $row['direccion_prove'] . '</td>';
-            echo '<td>' . $row['telefono_prove'] . '</td>';
-            echo '<td>' . $row['email_prove'] . '</td>';
-            echo '</tr>';
-            echo '</table>';
-        }
-        ?>
+        <table class="table table-bordered">
+            <?php
+            include("conexion.php");
+            $sql = "SELECT * FROM proveedores";
+            foreach ($db->query($sql) as $row) {
+                echo '<tr class="table-light">';
+                echo '<th> ID </th>';
+                echo '<th> Nombre del proveedor </th>';
+                echo '<th> Direccion </th>';
+                echo '<th> Telefono</th>';
+                echo '<th> Correo electronico</th>';
+                echo '<th> Modificar</th>';
+                echo '<th> Eliminar</th>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<td>' . $row['id_proveedor'] . '</td>';
+                echo '<td>' . $row['nombre_prove'] . '</td>';
+                echo '<td>' . $row['direccion_prove'] . '</td>';
+                echo '<td>' . $row['telefono_prove'] . '</td>';
+                echo '<td>' . $row['email_prove'] . '</td>';
+                echo '<td>' . '<a class="btn btn-warning">Modificar </a> ' . '</td>';
+                echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_providers.php?id=' . $row["id_proveedor"] . '"> Eliminar </a>' . '</td>';
+                echo '</tr>';
+            }
+            ?>
+        </table>
 
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
