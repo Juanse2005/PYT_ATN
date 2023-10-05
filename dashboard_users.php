@@ -136,12 +136,11 @@
             </div>
         </div>
         <!--Content-->
-        <Table>
+        <Table class="table table-bordered">
             <?php
             include("conexion.php");
             $sql = "SELECT * FROM usuarios";
             foreach ($db->query($sql) as $row) {
-                echo '<table class="table table-bordered">';
                 echo '<tr class="table-light">';
                 echo '<th> ID </th>';
                 echo '<th> Primer nombre </th>';
@@ -160,13 +159,10 @@
                 echo '<td>' . $row['id_rol'] . '</td>';
                 echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_users.php?id=' . $row["id_usuario"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
-                echo '</table>';
             }
             ?>
         </Table>
-        </div>
     </main>
-    </div>
     <!--Iconos-->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="calendar3" viewBox="0 0 16 16">

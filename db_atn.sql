@@ -189,6 +189,8 @@ ALTER TABLE `usuarios`
 ALTER TABLE `proveedores`
   MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Filtros para la tabla `producto`
 --
