@@ -132,8 +132,10 @@
             <h1 class="h2">Productos</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                 </div>
+
             </div>
         </div>
         <!--Contenido-->
@@ -173,27 +175,57 @@
             }
             ?>
         </table>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
+
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar producto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form name="agregar" action="vcrud_add_providers.php" method="post">
+                <form name="agregar" action="vcrud_add_products.php" method="post">
                     <div class="mb-3">
                         <label class="form-label">Codigo del producto</label>
-                        <input type="text" class="form-control" name="nombre_prove" required>
+                        <input type="text" class="form-control" name="codigo_prod" required>
+                        <label class="form-label">Nombre del producto</label>
+                        <textarea class="form-control" name="nombre_prod" required></textarea>
                         <label class="form-label">Descripcion</label>
-                        <input type="text" class="form-control" name="direccion_prove" required>
-                        <label class="form-label">Telefono</label>
-                        <input type="text" class="form-control" name="telefono_prove">
-                        <label class="form-label">Correo electronico</label>
-                        <input type="text" class="form-control" name="email_prove">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="descripcion_prod" required></textarea>
+                            <label for="floatingTextarea2">Redacta una breve descripcion</label>
+                        </div>
+                        <label class="form-label">Stock</label>
+                        <input type="text" class="form-control" name="stock_prod" required>
+                        <label class="form-label">Precio</label>
+                        <input type="text" class="form-control" name="precio_prod" required>
+                        <label class="form-label">Descuento</label>
+                        <input type="text" class="form-control" name="descuento_prod" required>
+                        <label class="form-label">Estado</label>
+                        <input type="text" class="form-control" name="estado_prod" required>
+                        <label class="form-label">Imagen</label>
+                        <input type="file" class="form-control" name="imagen_prod" required>
+                        <label class="form-label">Proveedor</label>
+                        <select class="form-select" aria-label="Default select example" name="id_proveedor" required>
+                            <?php
+                            include("conexion.php");
+                            $sql = "SELECT * FROM proveedores";
+                            foreach ($db->query($sql) as $row) {
+                                echo '<option value="' . $row['id_proveedor'] . '" >' . $row['nombre_prove'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <label class="form-label">Categoria</label>
+                        <select class="form-select" aria-label="Default select example" name="id_categoria" required>
+                            <?php
+                            include("conexion.php");
+                            $sql = "SELECT * FROM categorias";
+                            foreach ($db->query($sql) as $row) {
+                                echo '<option value="' . $row['id_categoria'] . '" >' . $row['nombre_cat'] . '</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                     <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Agregar</button>
                 </form>
-
             </div>
         </div>
     </main>
