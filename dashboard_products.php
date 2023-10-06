@@ -127,7 +127,7 @@
     include("sidebar_dash.php");
     ?>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class=" container-flex col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Productos</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -139,96 +139,99 @@
             </div>
         </div>
         <!--Contenido-->
-        <table class="table table-bordered">
-            <?php
-            include("conexion.php");
-            $sql = "SELECT * FROM productos";
-            foreach ($db->query($sql) as $row) {
-                echo '<tr class="table-light">';
-                echo '<th> ID </th>';
-                echo '<th> Codigo </th>';
-                echo '<th> Nombre del producto </th>';
-                echo '<th> Descripcion </th>';
-                echo '<th> Stock </th>';
-                echo '<th> Precio </th>';
-                echo '<th> Descuento </th>';
-                echo '<th> Estado </th>';
-                echo '<th> Imagen </th>';
-                echo '<th> Proveedor </th>';
-                echo '<th> Categoria </th>';
-                echo '<th> Eliminar </th>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<td>' . $row['id_producto'] . '</td>';
-                echo '<td>' . $row['codigo_prod'] . '</td>';
-                echo '<td>' . $row['nombre_prod'] . '</td>';
-                echo '<td>' . $row['descripcion_prod'] . '</td>';
-                echo '<td>' . $row['stock_prod'] . '</td>';
-                echo '<td>' . $row['precio_prod'] . '</td>';
-                echo '<td>' . $row['descuento_prod'] . '</td>';
-                echo '<td>' . $row['estado_prod'] . '</td>';
-                echo '<td>' . $row['imagen_prod'] . '</td>';
-                echo '<td>' . $row['id_proveedor'] . '</td>';
-                echo '<td>' . $row['id_categoria'] . '</td>';
-                echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_products.php?id=' . $row["id_proveedor"] . '"> Eliminar </a>' . '</td>';
-                echo '</tr>';
-            }
-            ?>
-        </table>
+        <div class="">
+            <table class="table table-bordered">
+                <?php
+                include("conexion.php");
+                $sql = "SELECT * FROM productos";
+                foreach ($db->query($sql) as $row) {
+                    echo '<tr class="table-light">';
+                    echo '<th> ID </th>';
+                    echo '<th> Codigo </th>';
+                    echo '<th> Nombre del producto </th>';
+                    echo '<th> Descripcion </th>';
+                    echo '<th> Stock </th>';
+                    echo '<th> Precio </th>';
+                    echo '<th> Descuento </th>';
+                    echo '<th> Estado </th>';
+                    echo '<th> Imagen </th>';
+                    echo '<th> Proveedor </th>';
+                    echo '<th> Categoria </th>';
+                    echo '<th> Eliminar </th>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<td>' . $row['id_producto'] . '</td>';
+                    echo '<td>' . $row['codigo_prod'] . '</td>';
+                    echo '<td>' . $row['nombre_prod'] . '</td>';
+                    echo '<td>' . $row['descripcion_prod'] . '</td>';
+                    echo '<td>' . $row['stock_prod'] . '</td>';
+                    echo '<td>' . $row['precio_prod'] . '</td>';
+                    echo '<td>' . $row['descuento_prod'] . '</td>';
+                    echo '<td>' . $row['estado_prod'] . '</td>';
+                    echo '<td>' . $row['imagen_prod'] . '</td>';
+                    echo '<td>' . $row['id_proveedor'] . '</td>';
+                    echo '<td>' . $row['id_categoria'] . '</td>';
+                    echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_products.php?id=' . $row["id_producto"] . '"> Eliminar </a>' . '</td>';
+                    echo '</tr>';
+                }
+                ?>
+            </table>
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar producto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <form name="agregar" action="vcrud_add_products.php" method="post">
-                    <div class="mb-3">
-                        <label class="form-label">Codigo del producto</label>
-                        <input type="text" class="form-control" name="codigo_prod" required>
-                        <label class="form-label">Nombre del producto</label>
-                        <textarea class="form-control" name="nombre_prod" required></textarea>
-                        <label class="form-label">Descripcion</label>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="descripcion_prod" required></textarea>
-                            <label for="floatingTextarea2">Redacta una breve descripcion</label>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <form name="agregar" action="vcrud_add_products.php" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Codigo del producto</label>
+                            <input type="text" class="form-control" name="codigo_prod" required>
+                            <label class="form-label">Nombre del producto</label>
+                            <textarea class="form-control" name="nombre_prod" required></textarea>
+                            <label class="form-label">Descripcion</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="descripcion_prod" required></textarea>
+                                <label for="floatingTextarea2">Redacta una breve descripcion</label>
+                            </div>
+                            <label class="form-label">Stock</label>
+                            <input type="text" class="form-control" name="stock_prod" required>
+                            <label class="form-label">Precio</label>
+                            <input type="text" class="form-control" name="precio_prod" required>
+                            <label class="form-label">Descuento</label>
+                            <input type="text" class="form-control" name="descuento_prod" required>
+                            <label class="form-label">Estado</label>
+                            <input type="text" class="form-control" name="estado_prod" required>
+                            <label class="form-label">Imagen</label>
+                            <input type="file" class="form-control" name="imagen_prod" required>
+                            <label class="form-label">Proveedor</label>
+                            <select class="form-select" aria-label="Default select example" name="id_proveedor" required>
+                                <?php
+                                include("conexion.php");
+                                $sql = "SELECT * FROM proveedores";
+                                foreach ($db->query($sql) as $row) {
+                                    echo '<option value="' . $row['id_proveedor'] . '" >' . $row['nombre_prove'] . '</option>';
+                                }
+                                ?>
+                            </select>
+                            <label class="form-label">Categoria</label>
+                            <select class="form-select" aria-label="Default select example" name="id_categoria" required>
+                                <?php
+                                include("conexion.php");
+                                $sql = "SELECT * FROM categorias";
+                                foreach ($db->query($sql) as $row) {
+                                    echo '<option value="' . $row['id_categoria'] . '" >' . $row['nombre_cat'] . '</option>';
+                                }
+                                ?>
+                            </select>
                         </div>
-                        <label class="form-label">Stock</label>
-                        <input type="text" class="form-control" name="stock_prod" required>
-                        <label class="form-label">Precio</label>
-                        <input type="text" class="form-control" name="precio_prod" required>
-                        <label class="form-label">Descuento</label>
-                        <input type="text" class="form-control" name="descuento_prod" required>
-                        <label class="form-label">Estado</label>
-                        <input type="text" class="form-control" name="estado_prod" required>
-                        <label class="form-label">Imagen</label>
-                        <input type="file" class="form-control" name="imagen_prod" required>
-                        <label class="form-label">Proveedor</label>
-                        <select class="form-select" aria-label="Default select example" name="id_proveedor" required>
-                            <?php
-                            include("conexion.php");
-                            $sql = "SELECT * FROM proveedores";
-                            foreach ($db->query($sql) as $row) {
-                                echo '<option value="' . $row['id_proveedor'] . '" >' . $row['nombre_prove'] . '</option>';
-                            }
-                            ?>
-                        </select>
-                        <label class="form-label">Categoria</label>
-                        <select class="form-select" aria-label="Default select example" name="id_categoria" required>
-                            <?php
-                            include("conexion.php");
-                            $sql = "SELECT * FROM categorias";
-                            foreach ($db->query($sql) as $row) {
-                                echo '<option value="' . $row['id_categoria'] . '" >' . $row['nombre_cat'] . '</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Agregar</button>
-                </form>
+                        <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Agregar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
+    </div>
     <!--Iconos-->
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="calendar3" viewBox="0 0 16 16">
