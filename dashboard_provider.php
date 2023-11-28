@@ -132,7 +132,7 @@
             <h1 class="h2">Proveedores</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#login-offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                 </div>
             </div>
@@ -158,13 +158,14 @@
                 echo '<td>' . $row['direccion_prove'] . '</td>';
                 echo '<td>' . $row['telefono_prove'] . '</td>';
                 echo '<td>' . $row['email_prove'] . '</td>';
-                echo '<td>' . '<a class="btn btn-warning">Modificar </a> ' . '</td>';
+                echo '<td>' . '<a class="btn btn-warning" data-bs-toggle="offcanvas" data-id="' . $row["id_proveedor"] . '" data-bs-target="#modify-offcanvasRight" aria-controls="offcanvasRight">Modificar </a> ' . '</td>';
                 echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_providers.php?id=' . $row["id_proveedor"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
             }
             ?>
         </table>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <!-- Login Offcanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="login-offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -185,6 +186,29 @@
                 </form>
             </div>
         </div>
+        <!-- Modify Offcanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="modify-offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Modificar productos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form name="agregar" action="vcrud_modify_providers.php" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del proveedor</label>
+                        <input type="text" class="form-control" name="nombre_prove" value="<?php echo $row["id_proveedor"] ?>" required>
+                        <label class="form-label">Direccion</label>
+                        <input type="text" class="form-control" name="direccion_prove" required>
+                        <label class="form-label">Telefono</label>
+                        <input type="text" class="form-control" name="telefono_prove">
+                        <label class="form-label">Correo electronico</label>
+                        <input type="text" class="form-control" name="email_prove">
+                    </div>
+                    <button class="btn btn-primary" name="agregar" value="agregar" type="submit">Modificar</button>
+                </form>
+            </div>
+        </div>
+        
     </main>
     <!--Iconos-->
 </body>

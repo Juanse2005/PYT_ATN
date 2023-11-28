@@ -13,7 +13,7 @@
     <!--navbar-->
     <?php
     include('navbar_index.php')
-    ?>
+        ?>
 
     <div class="container mt-5">
         <br>
@@ -50,17 +50,20 @@
                         <div id="uno" class="carousel carousel-dark slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="prenda1.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
+                                    <img src="prenda1.png" class="card-img-top" style="width: 100%; height: 400px;"
+                                        alt="...">
                                 </div>
                                 <div class="carousel-item">
                                     <img src="prenda2.png" style="width: 100%; height: 400px;" alt="...">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#uno" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#uno"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#uno" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#uno"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -69,6 +72,7 @@
                             <h5 class="card-title">Camisa de mesclilla con botones</h5>
                             <p class="card-text">$150.000 COP</p>
                     </a>
+                    <button id="addToCartBtn">Añadir al carrito de compras</button>
                 </div>
             </div>
 
@@ -79,7 +83,8 @@
                     <div id="dos" class="carousel carousel-dark slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
+                                <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;"
+                                    alt="...">
                             </div>
                             <div class="carousel-item">
                                 <img src="prenda4.png" style="width: 100%; height: 400px;" alt="...">
@@ -154,6 +159,7 @@
                     <h5 class="card-title">Camiseta con bordado comic</h5>
                     <p class="card-text">$70.000 COP</p>
             </a>
+            <script src="shopping-cart.js"></script>
         </div>
     </div>
     </div>
@@ -161,59 +167,35 @@
     </div>
     <div class="container-fluid mt-3 ">
         <div class="row g-1">
-            <div class="col">
-                <div class="card">
-                    <img src="img-logo-atn.png" width="264" height="352" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">xd</p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="img-logo-atn.png" width="264" height="352" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">xd</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="img-logo-atn.png" width="264" height="352" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">xd</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="img-logo-atn.png" width="264" height="352" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">xd</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav aria-label="...">
-        <ul class="pagination pagination-lg">
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">1</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-        </ul>
-    </nav>|
+    <!-- Add products -->
+    <?php
+    include("conexion.php");
+    $sql = "SELECT * FROM productos";
+    $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $imagen_prod = $row['imagen_prod'];
+            $nombre_prod = $row['nombre_prod'];  
+            $precio_prod = $row['precio_prod'];
+            echo ' <div class="col">';
+            echo ' <div class="card">';
+            echo '<img src="' . $row['imagen_prod'] . '" width="264" height="352" alt="...">';
+            echo ' <div class="card-body">';
+            echo ' <h5 class="card-title"> ' . $row['nombre_prod'] . '</h5>';
+            echo ' <p class="card-text"> $' . $row['precio_prod'] . ' COP </p>';
+            echo ' </div>';
+            echo ' </div>';
+            echo ' </div>';
+        }
+    } else {
+        echo "No se encontraron resultados.";
+    }
+    ?>
     </div>
     <!--Footer-->
     <?php
     include('footer.php')
-    ?>
+        ?>
 </body>
 <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
