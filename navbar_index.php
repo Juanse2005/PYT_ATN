@@ -11,7 +11,7 @@
         <!--Form del buscador-->
         <div class="collapse navbar-collapse">
             <form class="d-flex" action="products.php" method="post">
-                <input class="form-control-nav" type="search" placeholder="Buscar..." aria-label="Search">
+                <input class="form-control-nav" type="search" name="search_query" placeholder="Buscar..." aria-label="Search">
             </form>
         </div>
         <!--Carrito de compras-->
@@ -134,15 +134,14 @@
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
                                 <input type="email" class="form-control" name="email" required>
-                                <div id="emailHelp" class="form-text">Recuerda nunca compartir tu correo con otras personas.</div>
+                              
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" name="password" required>
+                                <div id="emailHelp" class="form-text">Recuerda nunca compartir tu correo y/o ontraseña con otras personas.</div>
                             </div>
-                            <div class="mb-3">
-                                <a href="">¿Olvidaste tu contraseña?</a>
-                            </div>
+                           
                             <div class="d-grid gap-2 col-6 mx-auto">
                                 <button type="submit" class="btn btn-primary ">Iniciar sesion</button>
                             </div>

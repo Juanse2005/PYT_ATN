@@ -15,18 +15,10 @@
                     </div>
                     <div class="carousel-inner m-3">
                         <div class="carousel-item active">
-                            <img src="img-carousel1.jpg" class="d-block" height="425px" width="100%">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Coleccion primavera</h5>
-                                <p>Descubre los grandiosos descuentos que trae la coleccion primavera</p>
-                            </div>
+                            <img src="img-carousel1.png" class="d-block" height="425px" width="100%">
                         </div>
                         <div class="carousel-item">
-                            <img src="img-carousel2.png" class="d-block" height="425px" width="100%">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Urban Worn</h5>
-                                <p>La marca de indumentaria mas top de colombia!</p>
-                            </div>
+                            <img src="img-carousel2.jpg" class="d-block" height="425px" width="100%">
                         </div>
                         <div class="carousel-item">
                             <img src="img-carousel3.png" class="d-block" height="425px" width="100%" alt="...">
@@ -36,12 +28,12 @@
             </div>
             <div class="col p-3">
                 <div class="container-flex">
-                    <img src="img-carousel2.png" height="200px" width="100%" alt="">
+                    <img src="img-promo2.png" height="200px" width="100%" alt="">
                 </div>
                 <br>
                 <div class="col">
                     <div>
-                        <img src="img-carousel3.png" height="200px" width="100%" alt="">
+                        <img src="img-promo.png" height="200px" width="100%" alt="">
                     </div>
                 </div>
             </div>
@@ -57,7 +49,7 @@
         <div class="row g-1">
             <div class="col">
                 <div class="card" style="width: 100%; height: 100%">
-                    <a href="product_1.php" class="text-decoration-none h6">
+                    <a href="product_detail.php?id=1" class="text-decoration-none h6">
                         <img src="prenda1.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Camisa de mesclilla con botones</h5>
@@ -68,7 +60,7 @@
         </div>
         <div class="col">
             <div class="card" style="width: 100%; height: 100%">
-                <a href="product_2.php" class="text-decoration-none h6">
+                <a href="product_detail.php?id=2" class="text-decoration-none h6">
                     <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Camiseta con bordado comic</h5>
@@ -79,22 +71,22 @@
     </div>
     <div class="col">
         <div class="card" style="width: 100%; height: 100%">
-            <a href="product_1.php" class="text-decoration-none h6">
-                <img src="prenda1_1.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
+            <a href="product_detail.php?id=4" class="text-decoration-none h6">
+                <img src="vestido1.jpg" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Camisa de mesclilla con botones</h5>
-                    <p class="card-text">$150.000 COP</p>
+                    <h5 class="card-title">Vestido elegante black</h5>
+                    <p class="card-text">$180.000 COP</p>
             </a>
         </div>
     </div>
 </div>
 <div class="col">
     <div class="card" style="width: 100%; height: 100%">
-        <a href="product3_3.php" class="text-decoration-none h6">
-            <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
+        <a href="product_detail.php?id=5" class="text-decoration-none h6">
+            <img src="vestido2.jpg" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Camiseta con bordado comic</h5>
-                <p class="card-text">$70.000 COP</p>
+                <h5 class="card-title">Vestido terciopelo arrivals</h5>
+                <p class="card-text">$120.000 COP</p>
         </a>
     </div>
 </div>
@@ -118,27 +110,45 @@
                         <div class="carousel-item active">
                             <table border="2">
                                 <tr>
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
+                                    <a href="product_detail.php?id=7" class="text-decoration-none h6">
+                                        <img src="tenis.png" class=" w-25" alt="...">
+                                    </a>
+                                    <a href="product_detail.php?id=3" class="text-decoration-none h6">
+                                        <img src="chaqueta.png" class=" w-25" alt="...">
+                                    </a>
+                                    <a href="product_detail.php?id=9" class="text-decoration-none h6">
+                                        <img src="gorra.png" class=" w-25" alt="...">
+                                    </a>
                                 </tr>
                             </table>
                         </div>
                         <div class="carousel-item">
                             <table border="2">
                                 <tr>
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
+                                    <a href="product_detail.php?id=13" class="text-decoration-none h6">
+                                        <img src="manilla.png" class=" w-25" alt="...">
+                                    </a>
+                                    <a href="product_detail.php?id=11" class="text-decoration-none h6">
+                                        <img src="bolso.png" class=" w-25" alt="...">
+                                    </a>
+                                    <a href="products.php?id=1" class="text-decoration-none h6">
+                                        <img src="jogger.png" class=" w-25" alt="...">
+                                    </a>
                                 </tr>
                             </table>
                         </div>
                         <div class="carousel-item">
                             <table border="2">
                                 <tr>
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
-                                    <img src="img-logo-atn.png" class=" w-25" alt="...">
+                                    <a href="product_detail.php?id=8" class="text-decoration-none h6">
+                                        <img src="carriel.png" class=" w-25" alt="...">
+                                    </a>
+                                    <a href="product_detail.php?id=10" class="text-decoration-none h6">
+                                        <img src="gafas.png" class=" w-25" alt="...">
+                                    </a>
+                                    <a href="product_detail.php?id=6" class="text-decoration-none h6">
+                                        <img src="vestido3.png" class=" w-25" alt="...">
+                                    </a>
                                 </tr>
                             </table>
                         </div>

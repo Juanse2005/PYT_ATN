@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Dashboard Template · Bootstrap v5.3</title>
+    <link rel="icon" type="image/x-icon" href="img-logo-atn.png">
+    <title>Administrador | ATN</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -99,7 +100,7 @@
 <body>
     <!--Navbar-->
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="img-logo-atn.png"
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="dashboard.php"><img src="img-logo-atn.png"
                 height="45">ATN</a>
 
         <ul class="navbar-nav flex-row d-md-none">
@@ -139,7 +140,7 @@
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          
                 </div>
             </div>
         </div>
@@ -168,7 +169,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form name="agregar" action="vcrud_add_products.php" method="post">
+                <form name="agregar" action="vcrud_add_categories.php" method="post">
                     <div class="mb-3">
                         <label class="form-label">Nombre de la categoria</label>
                         <input type="text" class="form-control" name="nombre_cat" required>

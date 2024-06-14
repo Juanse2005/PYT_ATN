@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Dashboard Template · Bootstrap v5.3</title>
+    <link rel="icon" type="image/x-icon" href="img-logo-atn.png">
+    <title>Administrador | ATN</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -99,7 +100,7 @@
 <body>
     <!--Navbar-->
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="img-logo-atn.png" height="45">ATN</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="dashboard.php"><img src="img-logo-atn.png" height="45">ATN</a>
 
         <ul class="navbar-nav flex-row d-md-none">
             <li class="nav-item text-nowrap">
@@ -133,7 +134,6 @@
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                 </div>
 
             </div>
@@ -156,7 +156,7 @@
                 echo '<th> Imagen </th>';
                 echo '<th> Proveedor </th>';
                 echo '<th> Categoria </th>';
-                echo '<th> Modificar </th>';
+                //echo '<th> Modificar </th>';
                 echo '<th> Eliminar </th>';
                 echo '</tr>';
                 echo '<tr>';
@@ -168,10 +168,10 @@
                 echo '<td>' . $row['precio_prod'] . '</td>';
                 echo '<td>' . $row['descuento_prod'] . '</td>';
                 echo '<td>' . $row['estado_prod'] . '</td>';
-                echo '<td>' . $row['imagen_prod'] . '</td>';
+                echo '<td> img.jpg </td>';
                 echo '<td>' . $row['id_proveedor'] . '</td>';
                 echo '<td>' . $row['id_categoria'] . '</td>';
-                echo '<td>' . '<a class="btn btn-warning">Modificar </a> ' . '</td>';
+                //echo '<td>' . '<a class="btn btn-warning">Modificar </a> ' . '</td>';
                 echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_products.php?id=' . $row["id_producto"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
             }
@@ -184,7 +184,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form name="agregar" action="vcrud_add_products.php" method="post">
+                <form name="agregar" action="vcrud_add_products.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="form-label">Codigo del producto</label>
                         <input type="text" class="form-control" name="codigo_prod" required>

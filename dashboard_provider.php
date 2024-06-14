@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Dashboard Template · Bootstrap v5.3</title>
+    <link rel="icon" type="image/x-icon" href="img-logo-atn.png">
+    <title>Administrador | ATN</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -99,18 +100,23 @@
 <body>
     <!--Navbar-->
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="img-logo-atn.png" height="45">ATN</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="dashboard.php"><img src="img-logo-atn.png"
+                height="45">ATN</a>
 
         <ul class="navbar-nav flex-row d-md-none">
             <li class="nav-item text-nowrap">
-                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="true" aria-label="Toggle search">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="true"
+                    aria-label="Toggle search">
                     <svg class="bi">
                         <use xlink:href="#search" />
                     </svg>
                 </button>
             </li>
             <li class="nav-item text-nowrap">
-                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true"
+                    aria-label="Toggle navigation">
                     <svg class="bi">
                         <use xlink:href="#list" />
                     </svg>
@@ -124,23 +130,24 @@
     </header>
     <!--Sidebar-->
     <?php
-    include("sidebar_dash.php");
+    include ("sidebar_dash.php");
     ?>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Proveedores</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#login-offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#login-offcanvasRight" aria-controls="offcanvasRight">Agregar</button>
                 </div>
             </div>
         </div>
         <!--Contenido-->
         <table class="table table-bordered">
             <?php
-            include("conexion.php");
+            include ("conexion.php");
             $sql = "SELECT * FROM proveedores";
             foreach ($db->query($sql) as $row) {
                 echo '<tr class="table-light">';
@@ -149,7 +156,7 @@
                 echo '<th> Direccion </th>';
                 echo '<th> Telefono</th>';
                 echo '<th> Correo electronico</th>';
-                echo '<th> Modificar</th>';
+                //echo '<th> Modificar</th>';
                 echo '<th> Eliminar</th>';
                 echo '</tr>';
                 echo '<tr>';
@@ -158,14 +165,15 @@
                 echo '<td>' . $row['direccion_prove'] . '</td>';
                 echo '<td>' . $row['telefono_prove'] . '</td>';
                 echo '<td>' . $row['email_prove'] . '</td>';
-                echo '<td>' . '<a class="btn btn-warning" data-bs-toggle="offcanvas" data-id="' . $row["id_proveedor"] . '" data-bs-target="#modify-offcanvasRight" aria-controls="offcanvasRight">Modificar </a> ' . '</td>';
+                //echo '<td>' . '<a class="btn btn-warning" data-bs-toggle="offcanvas" data-id="' . $row["id_proveedor"] . '" data-bs-target="#modify-offcanvasRight" aria-controls="offcanvasRight">Modificar </a> ' . '</td>';
                 echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_providers.php?id=' . $row["id_proveedor"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
             }
             ?>
         </table>
         <!-- Login Offcanvas -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="login-offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="login-offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Agregar proveedor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -187,16 +195,20 @@
             </div>
         </div>
         <!-- Modify Offcanvas -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="modify-offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="modify-offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasRightLabel">Modificar productos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form name="agregar" action="vcrud_modify_providers.php" method="post">
+                <form action="vcrud_modify_providers.php" method="post">
                     <div class="mb-3">
+                        <input class="form-control" name="id_proveedor" value="<?php echo $row["id_proveedor"]; ?>"
+                            readonly>
                         <label class="form-label">Nombre del proveedor</label>
-                        <input type="text" class="form-control" name="nombre_prove" value="<?php echo $row["id_proveedor"] ?>" required>
+                        <input type="text" class="form-control" name="nombre_prove"
+                            value="<?php echo $row["nombre_prove"]; ?>" required>
                         <label class="form-label">Direccion</label>
                         <input type="text" class="form-control" name="direccion_prove" required>
                         <label class="form-label">Telefono</label>
@@ -208,7 +220,7 @@
                 </form>
             </div>
         </div>
-        
+
     </main>
     <!--Iconos-->
 </body>

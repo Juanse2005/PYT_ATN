@@ -1,8 +1,8 @@
 <footer class=" py-5 py-md-7 mt-5 bg-foot text-center ">
     <div>
-        <a href="" class="m-2"><img src="icon-facebook.png" height="40px" alt=""></a>
-        <a href="" class="m-2"><img src="icon-instagram.png" height="40px" alt=""></a>
-        <a href="" class="m-2"><img src="icon-youtube.png" height="50px" alt=""></a>
+        <a href="https://www.facebook.com/" class="m-2"><img src="icon-facebook.png" height="40px" alt=""></a>
+        <a href="https://www.instagram.com/" class="m-2"><img src="icon-instagram.png" height="40px" alt=""></a>
+        <a href="https://www.youtube.com/" class="m-2"><img src="icon-youtube.png" height="50px" alt=""></a>
     </div>
     <div class="container mt-5">
         <div class="row mt-3">
