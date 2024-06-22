@@ -41,58 +41,43 @@
     </div>
 </div>
 <!--Tarjetas-->
-<div class="container-flex bg-light ">
+<div class="container-flex bg-light">
     <div class="text-center">
-        <p class="fs-2 p-lg-4 h5">Articulos recientes</p>
+        <p class="fs-2 p-lg-4 h5">Artículos recientes</p>
     </div>
-    <div class="container-fluid ">
+
+    <div class="container mt-5">
         <div class="row g-1">
-            <div class="col">
-                <div class="card" style="width: 100%; height: 100%">
-                    <a href="product_detail.php?id=1" class="text-decoration-none h6">
-                        <img src="prenda1.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Camisa de mesclilla con botones</h5>
-                            <p class="card-text">$150.000 COP</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 100%; height: 100%">
-                <a href="product_detail.php?id=2" class="text-decoration-none h6">
-                    <img src="prenda3.png" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Camiseta con bordado comic</h5>
-                        <p class="card-text">$70.000 COP</p>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 100%; height: 100%">
-            <a href="product_detail.php?id=4" class="text-decoration-none h6">
-                <img src="vestido1.jpg" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Vestido elegante black</h5>
-                    <p class="card-text">$180.000 COP</p>
-            </a>
+            <?php
+            include ("conexion.php");
+
+            // Consulta SQL para obtener los primeros 6 productos (puedes ajustar el número según tus necesidades)
+            $sql_first_products = "SELECT * FROM productos ORDER BY id_producto DESC LIMIT 3";
+            $result_first_products = mysqli_query($db, $sql_first_products);
+
+            if ($result_first_products && mysqli_num_rows($result_first_products) > 0) {
+                while ($row_producto = mysqli_fetch_assoc($result_first_products)) {
+                    echo '<div class="col-md-4">';
+                    echo '    <div class="card">';
+                    echo '        <a href="product_detail.php?id=' . $row_producto['id_producto'] . '" class="text-decoration-none h6">';
+                    echo '            <img src="data:image/jpeg;base64,' . base64_encode($row_producto['imagen_prod']) . '" style="width: 100%; height: 400px;" alt="...">';
+                    echo '        </a>';
+                    echo '        <div class="card-body">';
+                    echo '            <h5 class="card-title">' . $row_producto['nombre_prod'] . '</h5>';
+                    echo '            <p class="card-text">$' . $row_producto['precio_prod'] . ' COP</p>';
+                    echo '            <a href="product_detail.php?id=' . $row_producto['id_producto'] . '" class="btn btn-primary">Ver detalle</a>';
+                    echo '        </div>';
+                    echo '    </div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "No se encontraron productos recientes.";
+            }
+            ?>
         </div>
     </div>
 </div>
-<div class="col">
-    <div class="card" style="width: 100%; height: 100%">
-        <a href="product_detail.php?id=5" class="text-decoration-none h6">
-            <img src="vestido2.jpg" class="card-img-top" style="width: 100%; height: 400px;" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Vestido terciopelo arrivals</h5>
-                <p class="card-text">$120.000 COP</p>
-        </a>
-    </div>
-</div>
-</div>
-</div>
-</div>
+
 <div class="container-flex mt-3 px-4">
     <img src="img-carousel4.png" width="100%" class="img-fluid mt-4" alt="...">
 </div>

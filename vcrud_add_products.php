@@ -11,6 +11,7 @@ if (isset($_POST['agregar'])) {
     $estado_prod = $_POST['estado_prod'];
     $id_proveedor = $_POST['id_proveedor'];
     $id_categoria = $_POST['id_categoria'];
+    $tipo_producto = $_POST['tipo_producto'];
 
     // Verificar si se ha subido un archivo
     if ($_FILES['imagen_prod']['error'] === UPLOAD_ERR_OK) {
@@ -23,7 +24,7 @@ if (isset($_POST['agregar'])) {
             die('Error en la consulta: ' . $db->error);
         }
         if ($result->num_rows == 0) {
-            $sql_insert = "INSERT INTO productos (codigo_prod, nombre_prod, descripcion_prod, stock_prod, precio_prod, descuento_prod, estado_prod, imagen_prod, id_proveedor, id_categoria) VALUES ('$codigo_prod', '$nombre_prod', '$descripcion_prod', '$stock_prod', '$precio_prod', '$descuento_prod', '$estado_prod', '$imagen_contenido', '$id_proveedor', '$id_categoria')";
+            $sql_insert = "INSERT INTO productos (codigo_prod, nombre_prod, descripcion_prod, stock_prod, precio_prod, descuento_prod, estado_prod, imagen_prod, id_proveedor, id_categoria, tipo_producto) VALUES ('$codigo_prod', '$nombre_prod', '$descripcion_prod', '$stock_prod', '$precio_prod', '$descuento_prod', '$estado_prod', '$imagen_contenido', '$id_proveedor', '$id_categoria', '$tipo_producto')";
             if ($db->query($sql_insert) === TRUE) {
                 echo "¡Se insertaron los datos correctamente!";
             } else {

@@ -156,6 +156,7 @@
                 echo '<th> Imagen </th>';
                 echo '<th> Proveedor </th>';
                 echo '<th> Categoria </th>';
+                echo '<th> Tipo de producto </th>';
                 //echo '<th> Modificar </th>';
                 echo '<th> Eliminar </th>';
                 echo '</tr>';
@@ -171,6 +172,7 @@
                 echo '<td> img.jpg </td>';
                 echo '<td>' . $row['id_proveedor'] . '</td>';
                 echo '<td>' . $row['id_categoria'] . '</td>';
+                echo '<td>' . $row['tipo_producto'] . '</td>';
                 //echo '<td>' . '<a class="btn btn-warning">Modificar </a> ' . '</td>';
                 echo '<td>' . '<a class="btn btn-danger" href="vcrud_delete_products.php?id=' . $row["id_producto"] . '"> Eliminar </a>' . '</td>';
                 echo '</tr>';
@@ -222,6 +224,16 @@
                             $sql = "SELECT * FROM categorias";
                             foreach ($db->query($sql) as $row) {
                                 echo '<option value="' . $row['id_categoria'] . '" >' . $row['nombre_cat'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <label class="form-label">Tipo de producto</label>
+                        <select class="form-select" aria-label="Default select example" name="tipo_producto" required>
+                            <?php
+                            include("conexion.php");
+                            $sql = "SELECT DISTINCT tipo_producto FROM tallas";
+                            foreach ($db->query($sql) as $row) {
+                                echo '<option value="' . $row['tipo_producto'] . '" >' . $row['tipo_producto'] . '</option>';
                             }
                             ?>
                         </select>

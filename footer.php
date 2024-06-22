@@ -15,7 +15,11 @@
             <div class="col-lg-6 ">
                 <h6 class="text-uppercase fw-bold mb-4">Información</h5>
                     <p>
-                        Buscamos crear un espacio digital donde los estudiantes y graduados del SENA puedan mostrar sus proyectos. A través de nuestro software, nos comprometemos a proporcionar las herramientas necesarias para impulsar el éxito empresarial de los emprendedores, fomentando la innovación, el crecimiento económico y la generación de empleo en la sociedad contribuyendo al progreso del país.
+                        Buscamos crear un espacio digital donde los estudiantes y graduados del SENA puedan mostrar sus
+                        proyectos. A través de nuestro software, nos comprometemos a proporcionar las herramientas
+                        necesarias para impulsar el éxito empresarial de los emprendedores, fomentando la innovación, el
+                        crecimiento económico y la generación de empleo en la sociedad contribuyendo al progreso del
+                        país.
                     </p>
             </div>
 
